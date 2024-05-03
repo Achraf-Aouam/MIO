@@ -1,0 +1,128 @@
+// prisma/schema.prisma
+datasource db {
+  provider  = "postgresql"
+  url  	    = env("DATABASE_URL")
+  // uncomment next line if you use Prisma <5.10
+  directUrl = env("DATABASE_URL_UNPOOLED")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+
+enum UserRole {
+  USER
+  ADMIN
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime? @map("email_verified")
+  image         String?
+  password      String?   
+  role          UserRole @default(USER)
+  accounts      Account[]
+  orders        Order[]
+  inventory     inventory @relation(fields: [inventoryid], references: [id])
+  inventoryid  String @unique
+  reports report[]
+  consumed consume[]
+
+  @@map("users")
+}
+
+model Account {
+  id                 String  @id @default(cuid())
+  userId             String  @map("user_id")
+  type               String
+  provider           String
+  providerAccountId  String  @map("provider_account_id")
+  refresh_token      String? @db.Text
+  access_token       String? @db.Text
+  expires_at         Int?
+  token_type         String?
+  scope              String?
+  id_token           String? @db.Text
+  session_state      String?
+ 
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+ 
+  @@unique([provider, providerAccountId])
+  @@map("accounts")
+}
+
+
+model Order{
+  id String @id @default(cuid())
+  user_id String
+  user User @relation(fields: [user_id], references: [id])
+  date DateTime @default(now())
+  unit_price Float
+  quantity Int
+  product_id String
+  product Product @relation(fields: [product_id], references: [id])
+  supplier_id String
+  supplier Supplier @relation(fields: [supplier_id], references: [id])
+
+}
+
+model Product {
+  id String @id @default(cuid()) 
+  name String
+  description String
+  orders Order[]
+  stocks stock[]
+  inventory inventory[]
+  consumed consume[]
+}
+
+model Supplier{
+  id String @id @default(cuid())
+  name String
+  email String
+  adress String
+  delivery_time Int
+  orders Order[]
+  stocks stock[]
+}
+
+
+model stock {
+  product_id String
+  product Product @relation(fields: [product_id], references: [id])
+  quantity Int
+  supplier_id String
+  supplier Supplier @relation(fields: [supplier_id], references: [id])
+  price Float
+  @@id([product_id, supplier_id])
+}
+
+model inventory{
+  id String @id @default(cuid())
+  user User?
+  product_id String
+  product Product @relation(fields: [product_id], references: [id])
+  quantity Int
+  
+}
+
+model report{
+  id String @id @default(cuid())
+  user_id String
+  user User @relation(fields: [user_id], references: [id])
+  url String
+}
+
+model consume{
+  
+  user_id String
+  user User @relation(fields: [user_id], references: [id])
+  product_id String
+  product Product @relation(fields: [product_id], references: [id])
+  quantity Int
+  date DateTime @default(now())
+  @@id([user_id, product_id])
+}
