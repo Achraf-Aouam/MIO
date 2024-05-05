@@ -26,8 +26,8 @@ model User {
   role          UserRole @default(USER)
   accounts      Account[]
   orders        Order[]
-  inventory     inventory @relation(fields: [inventoryid], references: [id])
-  inventoryid  String @unique
+  inventory     inventory? @relation(fields: [inventoryid], references: [id]) 
+  inventoryid   String? @unique
   reports report[]
   consumed consume[]
 
@@ -105,7 +105,7 @@ model inventory{
   user User?
   product_id String
   product Product @relation(fields: [product_id], references: [id])
-  quantity Int
+  quantity Int? 
   
 }
 

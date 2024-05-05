@@ -37,7 +37,7 @@ const NavHeader = async () => {
           href="#"
           className="text-muted-foreground transition-colors hover:text-foreground"
         >
-          Orders
+          Inventory
         </Link>
         <Link
           href="#"
@@ -81,7 +81,7 @@ const NavHeader = async () => {
               href="#"
               className="text-muted-foreground hover:text-foreground"
             >
-              Orders
+              Inventory
             </Link>
             <Link
               href="#"
