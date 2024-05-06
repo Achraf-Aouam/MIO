@@ -1,5 +1,6 @@
 import { Input } from "@/components/ui/input";
 import { auth, signOut } from "auth";
+import { logout } from "actions/logout";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import Link from "next/link";
 import {
