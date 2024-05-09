@@ -29,7 +29,7 @@ model User {
   role          UserRole @default(USER)
   accounts      Account[]
   orders        Order[]
-  inventories   inventory[]
+  
   reports report[]
   consumed consume[]
 
@@ -140,13 +140,12 @@ model stock {
 
 model inventory{
   
-  user_id String
-  user User @relation(fields: [user_id], references: [id])
+  id String @id @default(cuid())
   product_id String
-  product Product @relation(fields: [product_id], references: [id])
-  quantity Int
+  product Product @relation(fields: [product_id], references: [id], onDelete: Cascade)
+  quantity String
+  price String
 
-  @@id([user_id, product_id])
   
 }
 

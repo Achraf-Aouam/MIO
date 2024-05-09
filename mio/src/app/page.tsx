@@ -4,6 +4,8 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { LoginButton } from "@/components/auth/login-button";
 import useModal from "@/hooks/useModal";
+import useAddproductmodal from "@/hooks/useAddproduct";
+import useAddstockmodal from "@/hooks/useAddstock";
 
 const font = Poppins({
   subsets: ["latin"],
@@ -11,7 +13,7 @@ const font = Poppins({
 });
 
 export default function Home() {
-  const modal = useModal();
+  const modal = useAddstockmodal();
   return (
     <main className="flex h-full flex-col items-center justify-center bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-sky-400 to-blue-800">
       <div className="space-y-6 text-center">

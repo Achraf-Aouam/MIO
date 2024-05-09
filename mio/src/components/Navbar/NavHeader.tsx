@@ -29,19 +29,19 @@ const NavHeader = async () => {
           <span className="sr-only">Acme Inc</span>
         </Link>
         <Link
-          href="#"
+          href="/dashboard"
           className="text-foreground transition-colors hover:text-foreground"
         >
           Dashboard
         </Link>
         <Link
-          href="#"
+          href="/inventory"
           className="text-muted-foreground transition-colors hover:text-foreground"
         >
           Inventory
         </Link>
         <Link
-          href="#"
+          href="/products"
           className="text-muted-foreground transition-colors hover:text-foreground"
         >
           Products
@@ -85,7 +85,7 @@ const NavHeader = async () => {
               Inventory
             </Link>
             <Link
-              href="#"
+              href="/products"
               className="text-muted-foreground hover:text-foreground"
             >
               Products
