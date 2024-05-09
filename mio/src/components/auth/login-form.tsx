@@ -71,7 +71,7 @@ export const LoginForm = () => {
 
   return (
     <CardWrapper
-      headerLabel="Welcome back"
+      headerLabel="Welcome back (use google or github, auth credentials only work with select developer accounts untill we buy a domain)"
       backButtonLabel="Don't have an account?"
       backButtonHref="/auth/register"
       showSocial
