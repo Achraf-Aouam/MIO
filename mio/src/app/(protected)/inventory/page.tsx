@@ -100,7 +100,7 @@ const Products = async () => {
                     <TableCell className="text-right">
                       {" "}
                       {/* New column */}
-                      <Deletebutt id={inventory.id} />
+                      <Deletebutt id={inventory.id} type="inventory" />
                       {/* <Button variant="destructive">Delete</Button>{" "} */}
                       {/* Red button */}
                     </TableCell>{" "}
