@@ -32,7 +32,6 @@ export default function Home() {
               Sign in
             </Button>
           </LoginButton>
-          <Button onClick={modal.onOpen}>modal test</Button>
         </div>
       </div>
     </main>
