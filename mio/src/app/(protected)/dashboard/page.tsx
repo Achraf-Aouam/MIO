@@ -33,27 +33,27 @@ export default function Dashboard() {
       <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-8">
         <div className="grid gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-4">
           <CardDash
-            cardTitle="Total Revenue"
-            carddata="$45,231.89"
-            cardsubdata="+20.1% from last month"
+            cardTitle="Total consomassion"
+            carddata="12008,5 dh"
+            cardsubdata="+2.1% depuis le mois dernier"
             Icon={DollarSign}
           />
           <CardDash
-            cardTitle="Subscriptions"
-            carddata="+2350"
-            cardsubdata="+180.1% from last month"
+            cardTitle="budget"
+            carddata="25000 dh"
+            cardsubdata="+0.0% depuis le mois dernier"
             Icon={Users}
           />
           <CardDash
-            cardTitle="Sales"
-            carddata="+12,234"
-            cardsubdata="+19% from last month"
+            cardTitle="achats"
+            carddata="56"
+            cardsubdata="+19% depius le mois dernier"
             Icon={CreditCard}
           />
           <CardDash
-            cardTitle="Active Now"
-            carddata="+573"
-            cardsubdata="+201 since last hour"
+            cardTitle="fournisseurs en contrat"
+            carddata="11"
+            cardsubdata="bureau sarl est le plus actif"
             Icon={Activity}
           />
         </div>
