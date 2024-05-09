@@ -14,7 +14,7 @@ const Deletebutt: FC<deletebuttProps> = ({ id, type }) => {
   const onSubmit = async (id: string) => {
     if (type === "product") {
       try {
-        fetch("/api/deleteproducts", {
+        fetch("/api/deletepost", {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",
