@@ -28,8 +28,7 @@ import Dashtable from "@/components/tables/dash-table";
 import Cardelements from "@/components/cards/elements-card";
 import { useEffect, useState } from "react";
 // import { countProducts } from "@/app/api/db/route";
-import { CircularProgress } from "@mui/material";
-import { db } from "@/lib/db";
+
 import { fetchproducts, countProducts } from "@/app/lib/data";
 import {
   Table,
